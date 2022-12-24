@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import CardSkeletion from "./CardSkeletion";
 import UserCard from "./UserCard";
 
 const Home = () => {
@@ -18,8 +19,7 @@ const Home = () => {
     <>
       <h1 style={{ marginBottom: "1.5rem" }}>Users</h1>
       <div className="user-container">
-        {isLoading && <p>Loading...</p>}
-
+        {isLoading && <CardSkeletion cards={8} />}
         {users.map((user) => (
           <UserCard user={user} key={user.id} />
         ))}
